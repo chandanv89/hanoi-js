@@ -1,0 +1,35 @@
+<!doctype html>
+   <head>
+      <title>Tower of Hanoi</title>
+      <script>
+         var move = function(from,to){
+            console.log("Move the top-most disc from " + from + " to " + to);
+         }
+      
+         var solve = function(n,src,aux,dst){
+            if(n==0) return;
+            solve(n-1,src,dst,aux);
+            move(src,dst);
+            solve(n-1,aux,src,dst);
+         }
+         
+         var hanoi = function(){
+            var discCount = $("#discCount").val();
+            console.log(discCount);
+         }
+         
+         window.onload = function(){
+            //solve(3,"B","A","C");
+         };
+      </script>
+   </head>
+   <body>
+      <div id="container">
+         <div id="input">
+            <input id="discCount" type="number" min=3 max=10 />
+            <button onclick="hanoi()">Solve</button>
+         </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+   </body>
+</html>
